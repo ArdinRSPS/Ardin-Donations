@@ -1,0 +1,133 @@
+const App = () => {
+  return (
+    <div>
+      <header style={styles.header}>
+        <h1 style={styles.headerTitle}>Ardin Donation Benefits</h1>
+      </header>
+      <div style={styles.content}>
+        {tiers.map((tier, index) => (
+          <div key={index} style={styles.tier}>
+            <h2 style={styles.tierTitle}>{tier.title}</h2>
+            <p>{tier.description}</p>
+            {tier.button && (
+              <a
+                style={styles.donateButton}
+                href={tier.button.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {tier.button.text}
+              </a>
+            )}
+          </div>
+        ))}
+        <div style={styles.discordLink}>
+          <p>Join the Ardin Community:</p>
+          <a
+            href="https://discord.gg/8t7VKkEg"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.discordAnchor}
+          >
+            https://discord.gg/8t7VKkEg
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const tiers = [
+  {
+    title: "Normal Donator ($10 - $49)",
+    description:
+      "Basic donator status with access to donator zone and starter perks.",
+    button: {
+      text: "Donate",
+      link: "https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID",
+    },
+  },
+  {
+    title: "Super Donator ($50 - $99)",
+    description:
+      "Includes Normal perks plus better drop rates and cosmetic unlocks.",
+  },
+  {
+    title: "Elite Donator ($100 - $499)",
+    description:
+      "Includes Super perks plus elite armor sets and faster XP rates.",
+  },
+  {
+    title: "V.I.P Donator ($500 - $999)",
+    description:
+      "Access to VIP areas, exclusive bosses, and unique cosmetics.",
+  },
+  {
+    title: "Legendary Donator ($1000 - $2499)",
+    description:
+      "Custom yell tag, monthly rewards, and private instances.",
+  },
+  {
+    title: "Sponsor Donator ($2500 - $4999)",
+    description:
+      "All previous perks, plus server-wide benefits and custom rank.",
+  },
+  {
+    title: "Mythic Donator ($5000 - $9999)",
+    description:
+      "Top-tier perks, exclusive mounts, early access to updates.",
+  },
+  {
+    title: "Cosmic Donator ($10,000+)",
+    description:
+      "Lifetime VIP access, custom areas, personal boss, and more.",
+  },
+];
+
+const styles = {
+  header: {
+    backgroundColor: "#1a1a1a",
+    padding: "20px",
+    textAlign: "center",
+  },
+  headerTitle: {
+    margin: 0,
+    color: "#ffd700",
+  },
+  content: {
+    padding: "30px",
+    maxWidth: "1000px",
+    margin: "auto",
+  },
+  tier: {
+    backgroundColor: "#1f1f1f",
+    border: "2px solid #333",
+    padding: "20px",
+    marginBottom: "20px",
+    borderRadius: "10px",
+  },
+  tierTitle: {
+    color: "#ffcc00",
+    marginTop: 0,
+  },
+  donateButton: {
+    display: "inline-block",
+    marginTop: "10px",
+    backgroundColor: "#0070ba",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    textDecoration: "none",
+  },
+  discordLink: {
+    textAlign: "center",
+    marginTop: "40px",
+  },
+  discordAnchor: {
+    color: "#7289da",
+    textDecoration: "none",
+    fontWeight: "bold",
+  },
+};
+
+export default App;
